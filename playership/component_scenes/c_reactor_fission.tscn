@@ -1,0 +1,120 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgb5sivxk28ta"]
+
+[ext_resource type="Script" path="res://playership/component_classes/c_reactor_fission.gd" id="1_o5rqm"]
+
+[node name="reactor_fission" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_o5rqm")
+
+[node name="temp" type="Label" parent="."]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 37.0
+offset_right = 103.0
+offset_bottom = 60.0
+text = "temp: 9999°C"
+
+[node name="output" type="Label" parent="."]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 65.0
+offset_right = 153.0
+offset_bottom = 88.0
+text = "output: 250MW"
+
+[node name="coolant" type="Label" parent="."]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 91.0
+offset_right = 153.0
+offset_bottom = 114.0
+text = "coolant: 250L"
+
+[node name="coolant_pump" type="Button" parent="."]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 133.0
+offset_right = 216.0
+offset_bottom = 165.0
+toggle_mode = true
+text = "Coolant Pumps On/Off"
+
+[node name="status" type="Label" parent="coolant_pump"]
+layout_mode = 0
+offset_left = 197.0
+offset_top = 4.0
+offset_right = 397.0
+offset_bottom = 27.0
+text = "Off"
+
+[node name="cycle_pump" type="Button" parent="."]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 170.0
+offset_right = 216.0
+offset_bottom = 202.0
+toggle_mode = true
+text = "Cycle Pumps On/Off"
+
+[node name="status" type="Label" parent="cycle_pump"]
+layout_mode = 0
+offset_left = 197.0
+offset_top = 3.0
+offset_right = 397.0
+offset_bottom = 26.0
+text = "Off"
+
+[node name="fuel_loader" type="Button" parent="."]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 208.0
+offset_right = 216.0
+offset_bottom = 240.0
+toggle_mode = true
+text = "Fuel Loader On/Off"
+
+[node name="status" type="Label" parent="fuel_loader"]
+layout_mode = 0
+offset_left = 197.0
+offset_top = 4.0
+offset_right = 397.0
+offset_bottom = 27.0
+text = "Off"
+
+[node name="generator" type="Button" parent="."]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 248.0
+offset_right = 217.0
+offset_bottom = 280.0
+toggle_mode = true
+text = "Generator On/Off"
+
+[node name="status" type="Label" parent="generator"]
+layout_mode = 0
+offset_left = 196.0
+offset_top = 4.0
+offset_right = 396.0
+offset_bottom = 27.0
+text = "Off"
+
+[node name="control_rod_slider" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 326.0
+offset_right = 351.0
+offset_bottom = 342.0
+value = 100.0
+
+[node name="control_rod_label" type="Label" parent="control_rod_slider"]
+layout_mode = 0
+offset_top = -31.0
+offset_right = 150.0
+offset_bottom = -8.0
+text = "Control Rods: 100%"
+
+[connection signal="pressed" from="coolant_pump" to="." method="_on_coolant_pump_pressed"]
+[connection signal="pressed" from="cycle_pump" to="." method="_on_cycle_pump_pressed"]
+[connection signal="pressed" from="fuel_loader" to="." method="_on_fuel_loader_pressed"]
+[connection signal="pressed" from="generator" to="." method="_on_generator_pressed"]

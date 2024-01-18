@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://canr6irnlri2v"]
+
+[ext_resource type="Script" path="res://playership/playership.gd" id="1_ohmtn"]
+[ext_resource type="PackedScene" uid="uid://dgb5sivxk28ta" path="res://playership/component_scenes/c_reactor_fission.tscn" id="2_lu3gv"]
+
+[node name="world" type="Node3D"]
+
+[node name="ui" type="CanvasLayer" parent="."]
+
+[node name="playership" type="Control" parent="ui"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ohmtn")
+
+[node name="reactor_fission" parent="ui/playership" instance=ExtResource("2_lu3gv")]

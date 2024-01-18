@@ -1,0 +1,8 @@
+config_version=5
+
+[application]
+
+config/name="spacetruck_sim"
+run/main_scene="res://devworld.tscn"
+config/features=PackedStringArray("4.2", "Forward Plus")
+config/icon="res://icon.svg"
