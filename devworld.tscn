@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://canr6irnlri2v"]
+[gd_scene load_steps=4 format=3 uid="uid://canr6irnlri2v"]
 
 [ext_resource type="Script" path="res://playership/playership.gd" id="1_ohmtn"]
 [ext_resource type="PackedScene" uid="uid://dgb5sivxk28ta" path="res://playership/component_scenes/c_reactor_fission.tscn" id="2_lu3gv"]
+[ext_resource type="PackedScene" uid="uid://cbon2r6x5j52b" path="res://playership/component_scenes/c_drive_nuclear.tscn" id="3_kdqo5"]
 
 [node name="world" type="Node3D"]
 
@@ -13,3 +14,5 @@ anchors_preset = 0
 script = ExtResource("1_ohmtn")
 
 [node name="reactor_fission" parent="ui/playership" instance=ExtResource("2_lu3gv")]
+
+[node name="reactor_fission2" parent="ui/playership" instance=ExtResource("3_kdqo5")]

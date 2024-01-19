@@ -37,8 +37,10 @@ func _ready():
 
 func _physics_process(delta):
 	# mechanics
-	d_output = calc_ouput(d_temp)
-	m_control_rods = get_node("control_rod_slider").value / 100
+	m_control_rods = slider_control_rod.value / 100
+	
+	if m_cycle_pumps and m_generator:
+		d_output = calc_ouput(d_temp)
 	
 	if d_temp < 0:
 		d_temp = 0
@@ -92,14 +94,14 @@ func _on_coolant_pump_pressed():
 	if m_coolant_pumps:
 		status_coolant_pump.text = text_deac
 		toggle_coolant_pump.disabled = true
-		await wait(3)
+		await wait(1)
 		toggle_coolant_pump.disabled = false
 		m_coolant_pumps = false
 		status_coolant_pump.text = text_off
 	else:
 		status_coolant_pump.text = text_init
 		toggle_coolant_pump.disabled = true
-		await wait(3)
+		await wait(1)
 		toggle_coolant_pump.disabled = false
 		m_coolant_pumps = true
 		status_coolant_pump.text = text_op
@@ -108,14 +110,14 @@ func _on_cycle_pump_pressed():
 	if m_cycle_pumps:
 		status_cycle_pump.text = text_deac
 		toggle_cycle_pump.disabled = true
-		await wait(3)
+		await wait(1)
 		toggle_cycle_pump.disabled = false
 		m_cycle_pumps = false
 		status_cycle_pump.text = text_off
 	else:
 		status_cycle_pump.text = text_init
 		toggle_cycle_pump.disabled = true
-		await wait(3)
+		await wait(1)
 		toggle_cycle_pump.disabled = false
 		m_cycle_pumps = true
 		status_cycle_pump.text = text_op
@@ -124,14 +126,14 @@ func _on_fuel_loader_pressed():
 	if m_fuel_loaders:
 		status_fuel_loader.text = text_deac
 		toggle_fuel_loader.disabled = true
-		await wait(3)
+		await wait(1)
 		toggle_fuel_loader.disabled = false
 		m_fuel_loaders = false
 		status_fuel_loader.text = text_off
 	else:
 		status_fuel_loader.text = text_init
 		toggle_fuel_loader.disabled = true
-		await wait(3)
+		await wait(1)
 		toggle_fuel_loader.disabled = false
 		m_fuel_loaders = true
 		status_fuel_loader.text = text_op
@@ -141,14 +143,14 @@ func _on_generator_pressed():
 	if m_generator:
 		status_generator.text = text_deac
 		toggle_generator.disabled = true
-		await wait(3)
+		await wait(1)
 		toggle_generator.disabled = false
 		m_generator = false
 		status_generator.text = text_off
 	else:
 		status_generator.text = text_init
 		toggle_generator.disabled = true
-		await wait(3)
+		await wait(1)
 		toggle_generator.disabled = false
 		m_generator = true
 		status_generator.text = text_op

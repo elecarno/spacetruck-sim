@@ -1,0 +1,70 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbon2r6x5j52b"]
+
+[ext_resource type="Script" path="res://playership/component_classes/c_drive_nuclear.gd" id="1_urd2a"]
+
+[node name="drive_nuclear" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_urd2a")
+
+[node name="temp" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1023.0
+offset_top = 24.0
+offset_right = 1126.0
+offset_bottom = 47.0
+text = "temp: 9999°C"
+horizontal_alignment = 2
+
+[node name="output" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1008.0
+offset_top = 52.0
+offset_right = 1127.0
+offset_bottom = 75.0
+text = "output: 250MW"
+horizontal_alignment = 2
+
+[node name="coolant" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1008.0
+offset_top = 78.0
+offset_right = 1127.0
+offset_bottom = 101.0
+text = "coolant: 250L"
+horizontal_alignment = 2
+
+[node name="coolant_pump" type="Button" parent="."]
+layout_mode = 0
+offset_left = 942.0
+offset_top = 122.0
+offset_right = 1125.0
+offset_bottom = 154.0
+toggle_mode = true
+text = "On/Off"
+
+[node name="status" type="Label" parent="coolant_pump"]
+layout_mode = 0
+offset_left = -212.0
+offset_top = 4.0
+offset_right = -12.0
+offset_bottom = 27.0
+text = "Off"
+horizontal_alignment = 2
+
+[node name="throttle_slider" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 815.0
+offset_top = 313.0
+offset_right = 1133.0
+offset_bottom = 329.0
+value = 100.0
+
+[node name="throttle_label" type="Label" parent="throttle_slider"]
+layout_mode = 0
+offset_top = -31.0
+offset_right = 150.0
+offset_bottom = -8.0
+text = "Throttle: 100%"
+
+[connection signal="pressed" from="coolant_pump" to="." method="_on_coolant_pump_pressed"]

@@ -2,11 +2,11 @@ class_name subsystem
 extends Control
 
 # static
-var s_idle_temp: int # °C
-var s_max_temp: int # °C
+var s_idle_thermal: int # °C
+var s_max_thermal: int # °C
 
 # dynamic
-var d_temp: float # °C
+var d_thermal: int # °C (excess heat produced by the subsystem)
 
 # interface text
 var text_off: String = "Off"
